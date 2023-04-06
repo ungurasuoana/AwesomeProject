@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Alert
 } from 'react-native';
 
 import {
@@ -53,8 +54,26 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const onPress = (title:string) => {
+    Alert.alert(title, '', [
+        {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel'
+        },
+        {
+            text: 'OK',
+            onPress: () => console.log('OK Pressed')
+        },
+    ])
+}
+
   return (
-<MyScrollView/>
+<MyCard onPress={onPress} item={{
+  image:require('./src/assets/cat.jpg'), 
+  title:'john.doe324',
+  description:'JOHNY said'
+}}/>
   );
 }
 

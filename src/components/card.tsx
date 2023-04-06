@@ -1,41 +1,39 @@
-import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native"
+import { Alert, Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native"
+import { MyItem } from "../types/Post.Interface";
+import { useState } from "react";
 
-export const MyCard = () => {
+interface Props {
+    item: MyItem
+    onPress: (title:string) => void
+}
+
+export const MyCard = (props:Props) => {
     const source = require('../assets/cat.jpg')
     const heart = require('../assets/heart.png')
     const comment = require('../assets/comment.png')
     const send = require('../assets/sendd.png')
     const saved = require('../assets/saved.png')
+    const [title, setTitle] = useState('john.doe324')
+    const[pressed, setPressed] = useState(true)
+    const[orice,setOrice] = useState({id:1, title:'a'})
 
-    const showAlert = () => {
-        Alert.alert('Informational alert', 'The picture has been pressed! Congrats!', [
-            {
-                text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel'
-            },
-            {
-                text: 'OK',
-                onPress: () => console.log('OK Pressed')
-            },
-        ])
-    }
     return (
         <View style={styles.container}>
             <View style={styles.theCard}>
                 <View style={styles.top}>
                     <Image style={styles.profilePic}
                         source={source} />
-                    <Text style={styles.theText}>john.doe2345</Text>
+                    <Text style={styles.theText}>{orice.title}</Text>
                 </View>
-                <Pressable style={styles.container}
-                    onPress={showAlert}>
-                    <Image style={styles.theImage}
-                        source={source} />
+                <Pressable style={styles.container} 
+                onPress={() => setPressed(!pressed)}>
+                    {pressed ? <Image style={styles.theImage}
+                        source={props.item.image} /> : <View style={styles.theImage}/>}
                 </Pressable>
                 <View style={styles.theButtons}>
                     <View style={styles.theButtonsLeft}>
                         <Pressable
+                        onPress={() => setOrice({...orice, title:'Salutation'})}
                             style={({ pressed }) => [
                                 {
                                     opacity: pressed ? 0.2 : 1,
@@ -73,7 +71,11 @@ export const MyCard = () => {
                     </View>
                 </View>
                 <View style={styles.top}>
-                    <Text style={styles.theText}>hello this is the new pic I took, I'm so cool</Text>
+                    <Text style={styles.theText}>{props.item.description}</Text>
+                    <TextInput onChangeText={(text) => setOrice({...orice, title: text})}
+                    style={styles.inputStyle}
+                    placeholder="Change title name"
+                    placeholderTextColor="green"/>
                 </View>
             </View>
         </View>
@@ -155,5 +157,11 @@ const styles = StyleSheet.create({
     icon: {
         width: 30,
         height: 30,
-    }
+    },
+    inputStyle: {
+        flex: 4,
+        width: 200,
+        height: 50,
+        color: 'white',
+    },
 })
