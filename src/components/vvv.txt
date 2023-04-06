@@ -1,0 +1,9 @@
+// {/* <FlatList 
+//   data={data}
+//   renderItem={renderItem}
+//   keyExtractor = {(item: any) => item.title}
+//   ListEmptyComponent={<View style={{marginTop:100}}><Text style={{color:'black'}}>HEllo aaaaa</Text></View>}
+//   ListHeaderComponent={<View style={{marginTop:70}}><Text>Lovely day at start</Text></View>}
+//   ListFooterComponent={<View style={{marginBottom:20}}><Text>Lovely day at end</Text></View>}
+//   ItemSeparatorComponent={() => <View style={{backgroundColor:'pink', height:30}}></View>}
+//   /> */}

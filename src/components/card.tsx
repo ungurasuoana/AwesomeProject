@@ -15,7 +15,7 @@ export const MyCard = (props:Props) => {
     const saved = require('../assets/saved.png')
     const [title, setTitle] = useState('john.doe324')
     const[pressed, setPressed] = useState(true)
-    const[orice,setOrice] = useState({id:1, title:'a'})
+    // const[orice,setOrice] = useState({id:1, title:props.title})
 
     return (
         <View style={styles.container}>
@@ -23,9 +23,9 @@ export const MyCard = (props:Props) => {
                 <View style={styles.top}>
                     <Image style={styles.profilePic}
                         source={source} />
-                    <Text style={styles.theText}>{orice.title}</Text>
+                    <Text style={styles.theText}>{props.item.title}</Text>
                 </View>
-                <Pressable style={styles.container} 
+                <Pressable style={styles.post} 
                 onPress={() => setPressed(!pressed)}>
                     {pressed ? <Image style={styles.theImage}
                         source={props.item.image} /> : <View style={styles.theImage}/>}
@@ -33,7 +33,7 @@ export const MyCard = (props:Props) => {
                 <View style={styles.theButtons}>
                     <View style={styles.theButtonsLeft}>
                         <Pressable
-                        onPress={() => setOrice({...orice, title:'Salutation'})}
+                        // onPress={() => setOrice({...orice, title:'Salutation'})}
                             style={({ pressed }) => [
                                 {
                                     opacity: pressed ? 0.2 : 1,
@@ -70,12 +70,12 @@ export const MyCard = (props:Props) => {
                         </Pressable>
                     </View>
                 </View>
-                <View style={styles.top}>
+                <View style={styles.description}>
                     <Text style={styles.theText}>{props.item.description}</Text>
-                    <TextInput onChangeText={(text) => setOrice({...orice, title: text})}
+                    {/* <TextInput onChangeText={(text) => setOrice({...orice, title: text})}
                     style={styles.inputStyle}
                     placeholder="Change title name"
-                    placeholderTextColor="green"/>
+                    placeholderTextColor="green"/> */}
                 </View>
             </View>
         </View>
@@ -84,18 +84,13 @@ export const MyCard = (props:Props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // height:200,
+        flex:1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2b2b2e',
-    },
-    theCard: {
-        flex: 1,
-        height: '40%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2b2b2e',
+        // marginBottom: 20,
         shadowColor: "white",
         shadowOffset: {
             width: 0,
@@ -105,8 +100,32 @@ const styles = StyleSheet.create({
         shadowRadius: 5.46,
         elevation: 1
     },
+    post: {
+            flex:1,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#2b2b2e',
+    },
+    theCard: {
+        // flex: 1,
+        width:'100%',
+        height: '40%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#2b2b2e',
+    },
     top: {
-        flex: 0.2,
+        // flex: 0.2,
+        height:50,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: '#2b2b2e',
+    },
+    description: {
+        height:30,
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -122,17 +141,18 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     theImage: {
-        flex: 1,
+        // flex: 1,
         width: '100%',
-        height: '100%',
+        height: 200,
     },
     theText: {
         fontSize: 14,
         fontWeight: 'bold',
         marginLeft: 10,
+        color: 'white',
     },
     theButtons: {
-        flex: 0.3,
+        height: 70,
         flexDirection: 'row',
     },
     theButtonsLeft: {
