@@ -7,14 +7,14 @@ interface Props {
 }
 
 export const MyEmail = (props: Props) => {
-    const [color, setColor] = useState('grey')
+    const [color, setColor] = useState('white')
 
     const verify = (verif: string) => {
-        if (verif.includes('@') == true)
+        if (verif.includes('@') == true && (verif.includes('gmail') == true || verif.includes('yahoo') == true)) 
             setColor('green'),
                 props.onChange(props.value = verif)
         else if (verif.includes('@') == false)
-            setColor('red'),
+            setColor('#ba090c'),
                 props.onChange(props.value = 'EMAIL IS INCORRECT')
         else
             console.log('ajutor')
@@ -23,9 +23,9 @@ export const MyEmail = (props: Props) => {
     return (
         <View>
             <Text style={styles.tag}>Email</Text>
-            <TextInput style={{ width: '99%', borderColor: color, borderBottomWidth: 1, color: 'black', height: 40 }}
+            <TextInput style={[styles.inputText,{ borderColor: color}]}
                 placeholder="Email"
-                placeholderTextColor="grey"
+                placeholderTextColor="white"
                 keyboardType="email-address"
                 onChangeText={verify}
             ></TextInput>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     tag: {
         color: 'black',
         fontWeight: 'bold',
-        fontSize: 15,
+        fontSize: 17,
     },
     inputView: {
         marginLeft: 10,
@@ -45,8 +45,7 @@ const styles = StyleSheet.create({
     },
     inputText: {
         width: '99%',
-        borderColor: 'grey',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         color: 'black',
         height: 40
     }

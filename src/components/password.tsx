@@ -17,7 +17,7 @@ export const MyPassword = (props: Props) => {
             <View style={styles.container}>
             <TextInput style={styles.inputText}
                 placeholder="Password"
-                placeholderTextColor="grey"
+                placeholderTextColor="white"
                 secureTextEntry={secure}
                 onChangeText={(pass) => props.onChange(props.value = pass)}
             />
@@ -34,14 +34,14 @@ export const MyPassword = (props: Props) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        borderColor: 'grey',
+        borderColor: 'white',
         borderBottomWidth: 2,
         marginRight: 5
     } ,
     tag: {
         color: 'black',
         fontWeight: 'bold',
-        fontSize: 15,
+        fontSize: 17,
     },
     inputText: {
         width: '90%',

@@ -1,38 +1,91 @@
-import { Pressable, View, StyleSheet, Alert, Text } from "react-native/"
+import { Pressable, View, StyleSheet, Alert, Text, Image, Linking } from "react-native/"
 
 interface Props {
     email: string
     password: string
 }
 
-export const MyButton = (props:Props) => {
+export const MyButton = (props: Props) => {
+    const facebook = require('../assets/facebook.png')
+    const instagram = require('../assets/insta.png')
+    const twitter = require('../assets/twitter.png')
+    const f = 'https://www.facebook.com'
+    const i = 'https://www.instagram.com'
+    const t = 'https://www.twitter.com'
+    const onPress = (link: string) => { Linking.openURL(link) }
+
     const showAlert = () => {
-        Alert.alert(props.email, props.password, [
-        {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-        },
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+        Alert.alert(`The email is: ${props.email}`, `The password is: ${props.password}`, [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+            },
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
         ])
-       }
-       
+    }
+
+
     return (
-        <View>
+        <View style={styles.button}>
             <Pressable style={styles.press}
-            onPress={showAlert}
-            ><Text>Login</Text></Pressable>
+                onPress={showAlert}>
+                <Text style={styles.text}>Login</Text>
+            </Pressable>
+            <View style={styles.bigFooter}>
+                <Text style={styles.text}>Or Sign-Up using</Text>
+                <View style={styles.footer}>
+                    <Pressable onPress={() => onPress(f)} style={styles.icons}>
+                        <Image source={facebook} style={styles.iconSize} />
+                    </Pressable>
+                    <Pressable onPress={() => onPress(i)} style={styles.icons}>
+                        <Image source={instagram} style={styles.iconSize} />
+                    </Pressable>
+                    <Pressable onPress={() => onPress(t)} style={styles.icons}>
+                        <Image source={twitter} style={styles.iconSize} />
+                    </Pressable>
+                </View>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     press: {
-        backgroundColor: 'blue',
         height: 50,
-        width: '80%',
+        width: 200,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 25
+        borderRadius: 25,
+        borderWidth: 1,
+        borderColor: 'white',
+        marginTop: 20,
+    },
+    text: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    button: {
+        height: 300,
+        alignItems: 'center',
+        marginTop: 20,
+        marginBottom: 50,
+    },
+    icons: {
+        margin: 5
+    },
+    iconSize: {
+        width: 40,
+        height: 40,
+    },
+    bigFooter: {
+        marginTop:150,
+        alignItems: 'center',
+    },
+    footer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10
     }
 })
