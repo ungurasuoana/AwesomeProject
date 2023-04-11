@@ -3,6 +3,7 @@ import { Pressable, View, StyleSheet, Alert, Text, Image, Linking } from "react-
 interface Props {
     email: string
     password: string
+    onLogin: () => void
 }
 
 export const MyButton = (props: Props) => {
@@ -28,8 +29,7 @@ export const MyButton = (props: Props) => {
 
     return (
         <View style={styles.button}>
-            <Pressable style={styles.press}
-                onPress={showAlert}>
+            <Pressable style={styles.press} onPress={props.onLogin}>
                 <Text style={styles.text}>Login</Text>
             </Pressable>
             <View style={styles.bigFooter}>

@@ -4,7 +4,11 @@ import { MyPassword } from "./password";
 import { useState } from "react";
 import { MyButton } from "./button";
 
-export const LoginForm = () => {
+interface Props {
+    onLogin: () => void;
+}
+
+export const LoginForm = (props: Props) => {
     const background = require('../assets/background.jpg')
     const backIcon = require('../assets/icon2.png')
 
@@ -21,13 +25,13 @@ export const LoginForm = () => {
                     <Text style={styles.title}>Login</Text>
                 </View>
                 <View style={styles.inputs}>
-                    <MyEmail value={email} onChange={onChangeEmail} />
+                    <MyEmail onChange={onChangeEmail} />
                 </View>
                 <View style={styles.inputs}>
-                    <MyPassword value={pass} onChange={onChangePass} />
+                    <MyPassword onChange={onChangePass} />
                 </View>
                 <View>
-                    <MyButton email={email} password={pass} />
+                    <MyButton email={email} password={pass} onLogin={props.onLogin}/>
                 </View>
             </ImageBackground>
         </View>

@@ -12,22 +12,25 @@ export const BookList = (props: Props) => {
     const heart0 = require('../assets/heart2.png')
     const heart1 = require('../assets/heart1.png')
 
-    const [favs, setFavs] = useState(0)
+    const [favs, setFavs] = useState(1)
     const [pressed, setPressed] = useState(false)
     const [img, setImg] = useState(heart0)
     const [more, setMore] = useState(true)
 
-    const onPress = (state: boolean) => {
-        if (!pressed)
-            setImg(heart0),
+    const onPress = () => {
+        console.log(pressed)
+        if (!pressed) {
+                setImg(heart1),
                 setPressed(true),
-                setFavs(1)
-        else if (pressed)
-            setImg(heart1),
+                setFavs(-1)}
+        else if (pressed) {
+                setImg(heart0),
                 setPressed(false),
-                setFavs(-1)
+                setFavs(1)}
         else
             setFavs(0)
+
+            props.onPress(props.value + favs)   
     }
 
     return (
@@ -36,7 +39,7 @@ export const BookList = (props: Props) => {
                 <ImageBackground style={styles.img} source={props.item.image}>
                     <View style={styles.pressContainer}>
                         <Pressable style={styles.press}
-                            onPress={() => { onPress(pressed), props.onPress(props.value + favs) }}>
+                            onPress={onPress}>
                             <Image source={img} style={styles.icon} />
                         </Pressable>
                     </View>
@@ -102,7 +105,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
+        textAlign: 'center'
     },
     description: {
         color: 'black'

@@ -8,7 +8,7 @@ import { BookListItem } from '../types/booklistItem';
 export const BookApp = () => {
     const backgr = require('../assets/backgr.png')
 
-    const [calc, setCalc] = useState(0)
+    const [calc, setCalc] = useState<number>(0)
 
     const onPress = (value: number) => {
         setCalc(value)

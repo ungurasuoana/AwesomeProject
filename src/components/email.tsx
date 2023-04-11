@@ -2,7 +2,6 @@ import { useState } from "react"
 import { TextInput, View, StyleSheet, Text } from "react-native/"
 
 interface Props {
-    value: string
     onChange: (value: string) => void
 }
 
@@ -11,11 +10,11 @@ export const MyEmail = (props: Props) => {
 
     const verify = (verif: string) => {
         if (verif.includes('@') == true && (verif.includes('gmail') == true || verif.includes('yahoo') == true)) 
-            setColor('green'),
-                props.onChange(props.value = verif)
+               { setColor('green'),
+                props.onChange(verif)}
         else if (verif.includes('@') == false)
-            setColor('#ba090c'),
-                props.onChange(props.value = 'EMAIL IS INCORRECT')
+               { setColor('#ba090c'),
+                props.onChange('EMAIL IS INCORRECT')}
         else
             console.log('ajutor')
     }
@@ -24,6 +23,7 @@ export const MyEmail = (props: Props) => {
         <View>
             <Text style={styles.tag}>Email</Text>
             <TextInput style={[styles.inputText,{ borderColor: color}]}
+            
                 placeholder="Email"
                 placeholderTextColor="white"
                 keyboardType="email-address"

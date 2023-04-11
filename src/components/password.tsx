@@ -2,7 +2,6 @@ import { useState } from "react"
 import { View, Text, TextInput, StyleSheet, Image, Pressable } from "react-native/"
 
 interface Props {
-    value: string
     onChange: (value: string) => void
 }
 
@@ -19,7 +18,7 @@ export const MyPassword = (props: Props) => {
                 placeholder="Password"
                 placeholderTextColor="white"
                 secureTextEntry={secure}
-                onChangeText={(pass) => props.onChange(props.value = pass)}
+                onChangeText={(pass) => props.onChange(pass)}
             />
             <Pressable onPress={() => setSecure(!secure)}>   
             {secure? 
