@@ -3,6 +3,7 @@ import { MyEmail } from "./email";
 import { MyPassword } from "./password";
 import { useState } from "react";
 import { MyButton } from "./button";
+import { HomeIcon } from "../assets/icons";
 
 interface Props {
     onLogin: () => void;
@@ -21,7 +22,8 @@ export const LoginForm = (props: Props) => {
         <View style={styles.container}>
             <ImageBackground source={background} style={styles.backImg}>
                 <View style={styles.top}>
-                    <Image source={backIcon} style={styles.backIcon}/>
+                    {/* <Image source={backIcon} style={styles.backIcon}/> */}
+                    <HomeIcon width={20} height={20}/>
                     <Text style={styles.title}>Login</Text>
                 </View>
                 <View style={styles.inputs}>

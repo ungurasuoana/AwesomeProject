@@ -4,6 +4,7 @@ import { Pressable, Text, View } from "react-native/";
 import { Home } from "../../screens/home";
 import { Login } from "../../screens/login";
 import { AppRouteProps, AppRoutes } from "../routes/app-routes";
+import { BottomTabs } from "./tab-navigator";
 
 const Stack = createStackNavigator<AppRouteProps>()
 
@@ -12,9 +13,10 @@ export const AppNavigator = () => {
         <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: 'pink'}}}>
             <Stack.Screen
                 name={AppRoutes.Login}
-                component={Login}
+                component={BottomTabs}
                 options={
                     ({ navigation, route }) => ({
+                        headerShown: false,
                         headerTransparent: true,
                         headerTitle: () => null,
                         headerRight: () => (
@@ -28,10 +30,10 @@ export const AppNavigator = () => {
             <Stack.Screen
                 name={AppRoutes.Home}
                 component={Home}
-
                 options={
                     ({ navigation, route }) => ({
                         //title: route.params?.title,
+                        headerShown: false,
                         headerTransparent: true,
                         headerTitle: () => null,
                         headerLeft: () => (
@@ -41,6 +43,7 @@ export const AppNavigator = () => {
                         )
                     })
                 } />
+                
         </Stack.Navigator>
     )
 }

@@ -4,6 +4,7 @@ import { BookApp } from './src/components/bookApp';
 import { LoginForm } from './src/components/loginForm';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigator } from './src/navigation/navigators/app-navigator';
+import { BottomTabs } from './src/navigation/navigators/tab-navigator';
 
 function App(): JSX.Element {
 
