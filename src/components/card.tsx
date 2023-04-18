@@ -8,11 +8,11 @@ interface Props {
 }
 
 export const MyCard = (props:Props) => {
-    const source = require('../assets/cat.jpg')
-    const heart = require('../assets/heart.png')
-    const comment = require('../assets/comment.png')
-    const send = require('../assets/sendd.png')
-    const saved = require('../assets/saved.png')
+    const source = require('../assets/pics/cat.jpg')
+    const heart = require('../assets/pics/heart.png')
+    const comment = require('../assets/pics/comment.png')
+    const send = require('../assets/pics/sendd.png')
+    const saved = require('../assets/pics/saved.png')
     const [title, setTitle] = useState('john.doe324')
     const[pressed, setPressed] = useState(true)
     // const[orice,setOrice] = useState({id:1, title:props.title})

@@ -15,11 +15,11 @@ const Tab = createBottomTabNavigator<TabRouteProps>()
 export const BottomTabs = () => {
     const navigation = useNavigation()
     return (
-        <Tab.Navigator screenOptions={{ title: 'Hello' }}>
+        <Tab.Navigator screenOptions={{ title: 'Hello' ,}}>
             <Tab.Screen name={TabRoutes.Home}
                 component={() => <View style={{ flex: 1, backgroundColor: 'red', alignItems: 'center', justifyContent: 'center' }}>
-                    <Pressable style={{ width: 50, height: 30, backgroundColor: 'white' }}
-                        onPress={() => navigation.navigate(AppRoutes.Home)}></Pressable>
+                    {/* <Pressable style={{ width: 50, height: 30, backgroundColor: 'white' }}
+                        onPress={() => navigation.navigate(AppRoutes.Home)}></Pressable> */}
                 </View>}
                 options={{
                     tabBarLabel: 'Home Page',

@@ -5,12 +5,14 @@ import { LoginForm } from './src/components/loginForm';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigator } from './src/navigation/navigators/app-navigator';
 import { BottomTabs } from './src/navigation/navigators/tab-navigator';
+import { CustomNavigation } from './src/navigation/navigators/custom-navigator';
+import { BookNavigation } from './src/navigation/navigators/book-navigator';
 
 function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <AppNavigator/>
+      <BookNavigation/>
     </NavigationContainer>
   );
 }

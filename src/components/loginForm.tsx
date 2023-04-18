@@ -10,8 +10,8 @@ interface Props {
 }
 
 export const LoginForm = (props: Props) => {
-    const background = require('../assets/background.jpg')
-    const backIcon = require('../assets/icon2.png')
+    const background = require('../assets/pics/background.jpg')
+    const backIcon = require('../assets/pics/icon2.png')
 
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')

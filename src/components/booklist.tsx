@@ -1,16 +1,18 @@
 import { View, StyleSheet, ImageBackground, Image, Pressable, Text } from "react-native/";
 import { useState } from "react";
 import { BookListItem } from "../types/booklistItem";
+import { More } from "../assets/icons";
 
 interface Props {
     item: BookListItem
     value: number
     onPress: (value: number) => void
+    onTouch: () => void
 }
 
 export const BookList = (props: Props) => {
-    const heart0 = require('../assets/heart2.png')
-    const heart1 = require('../assets/heart1.png')
+    const heart0 = require('../assets/pics/heart2.png')
+    const heart1 = require('../assets/pics/heart1.png')
 
     const [favs, setFavs] = useState(1)
     const [pressed, setPressed] = useState(false)
@@ -20,17 +22,19 @@ export const BookList = (props: Props) => {
     const onPress = () => {
         console.log(pressed)
         if (!pressed) {
-                setImg(heart1),
+            setImg(heart1),
                 setPressed(true),
-                setFavs(-1)}
+                setFavs(-1)
+        }
         else if (pressed) {
-                setImg(heart0),
+            setImg(heart0),
                 setPressed(false),
-                setFavs(1)}
+                setFavs(1)
+        }
         else
             setFavs(0)
 
-            props.onPress(props.value + favs)   
+        props.onPress(props.value + favs)
     }
 
     return (
@@ -47,17 +51,22 @@ export const BookList = (props: Props) => {
             </View>
             <View style={styles.container}>
                 <Text style={styles.title}>{props.item.title}</Text>
-                <Pressable onPress={() => setMore(!more)}>
-                    {more ?
-                        <Text numberOfLines={3} style={styles.description}>
-                            {props.item.description}
-                        </Text>
-                        :
-                        <Text style={styles.description}>
-                            {props.item.description}
-                        </Text>
-                    }
+                <Pressable onPress={() => props.onTouch()}
+                    style={styles.button}>
+                    <Text style={styles.textButton}>Read More</Text>
+                    <More width={15} height={15} />
                 </Pressable>
+                {/* // setMore(!more)}>
+                    // {more ?
+                    //     <Text numberOfLines={3} style={styles.description}>
+                    //         {props.item.description}
+                    //     </Text>
+                    //     :
+                    //     <Text style={styles.description}>
+                    //         {props.item.description}
+                    //     </Text>
+                    // }
+                // </Pressable> */}
             </View>
         </View>
     )
@@ -111,4 +120,30 @@ const styles = StyleSheet.create({
     description: {
         color: 'black'
     },
+    button: {
+        flexDirection: 'row',
+        marginTop: 10,
+        width: 300,
+        height: 45,
+        backgroundColor: '#fef2ff',
+        borderWidth: 1,
+        borderColor: 'grey',
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: "black",
+        shadowOffset: {
+            width: 5,
+            height: 5,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 10,
+        elevation: 10,
+    },
+    textButton: {
+        color: 'black', 
+        fontSize: 15, 
+        fontWeight: 'bold', 
+        marginRight: 5}
+
 })

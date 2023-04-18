@@ -5,11 +5,13 @@ import { Home } from "../../screens/home";
 import { Login } from "../../screens/login";
 import { AppRouteProps, AppRoutes } from "../routes/app-routes";
 import { BottomTabs } from "./tab-navigator";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createStackNavigator<AppRouteProps>()
 
 export const AppNavigator = () => {
     return (
+        <NavigationContainer>
         <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: 'pink'}}}>
             <Stack.Screen
                 name={AppRoutes.Login}
@@ -30,21 +32,22 @@ export const AppNavigator = () => {
             <Stack.Screen
                 name={AppRoutes.Home}
                 component={Home}
-                options={
-                    ({ navigation, route }) => ({
-                        //title: route.params?.title,
-                        headerShown: false,
-                        headerTransparent: true,
-                        headerTitle: () => null,
-                        headerLeft: () => (
-                            <Pressable style={{ height: 30, width: 30, backgroundColor: 'black', marginLeft: 10 }}
-                                onPress={() => navigation.goBack()}>
-                            </Pressable>
-                        )
-                    })
-                } />
+                // options={
+                //     ({ navigation, route }) => ({
+                //         //title: route.params?.title,
+                //         headerShown: false,
+                //         headerTransparent: true,
+                //         headerTitle: () => null,
+                //         headerLeft: () => (
+                //             <Pressable style={{ height: 30, width: 30, backgroundColor: 'black', marginLeft: 10 }}
+                //                 onPress={() => navigation.goBack()}>
+                //             </Pressable>
+                //         )
+                //     })}
+                     />
                 
         </Stack.Navigator>
+        </NavigationContainer>
     )
 }
 

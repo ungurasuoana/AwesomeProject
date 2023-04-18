@@ -6,8 +6,8 @@ interface Props {
 }
 
 export const MyPassword = (props: Props) => {
-    const icon0 = require('../assets/eye0.png')
-    const icon1 = require('../assets/eye1.png')
+    const icon0 = require('../assets/pics/eye0.png')
+    const icon1 = require('../assets/pics/eye1.png')
     const [secure, setSecure] = useState(true)
 
     return (

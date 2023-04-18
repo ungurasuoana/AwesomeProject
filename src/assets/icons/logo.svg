@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="850px" height="850px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 850 850"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:white}
+    .fil0 {fill:url(#id0)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="425" y1="850" x2="425" y2="0">
+   <stop offset="0" style="stop-opacity:1; stop-color:#1AA8DC"/>
+   <stop offset="0.490196" style="stop-opacity:1; stop-color:#AE3B89"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#F26270"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <circle class="fil0" cx="425" cy="425" r="425"/>
+  <g id="_389707032">
+   <g>
+    <g>
+     <path class="fil1" d="M619 634c-4,0 -7,-3 -7,-7l0 -443 -326 0c-22,0 -48,10 -48,40l0 399c0,4 -3,8 -7,8 -5,0 -7,-4 -7,-8l0 -399c0,-32 25,-55 62,-55l333 0c5,0 8,3 8,8l0 450c0,4 -3,7 -8,7z"/>
+    </g>
+    <g>
+     <path class="fil1" d="M619 681l-338 0c-32,0 -58,-26 -58,-58 0,-32 26,-58 58,-58l338 0c5,0 8,3 8,7l0 102c0,4 -3,7 -8,7zm-338 -102c-24,0 -43,20 -43,44 0,24 19,43 43,43l331 0 0 -87 -331 0z"/>
+    </g>
+    <g>
+     <path class="fil1" d="M306 579c-5,0 -8,-3 -8,-7l0 -395c0,-5 3,-8 8,-8 4,0 7,3 7,8l0 395c0,4 -4,7 -7,7z"/>
+    </g>
+    <g>
+     <path class="fil1" d="M619 630l-258 0c-4,0 -8,-3 -8,-7 0,-4 4,-8 8,-8l258 0c5,0 8,4 8,8 0,4 -3,7 -8,7z"/>
+    </g>
+    <g>
+     <path class="fil1" d="M566 303c-2,0 -4,-1 -5,-2l-32 -30 -35 30c-2,2 -5,2 -8,1 -2,-1 -4,-4 -4,-6l0 -119c0,-5 3,-8 8,-8l76 0c4,0 7,3 7,8l0 119c0,3 -2,5 -4,7 -2,0 -3,0 -3,0zm-69 -119l0 96 27 -24c3,-2 7,-2 9,0l25 23 0 -95 -61 0z"/>
+    </g>
+    <g>
+     <g>
+      <path class="fil1" d="M566 338l-206 0c-4,0 -8,-3 -8,-7 0,-4 4,-8 8,-8l206 0c4,0 7,4 7,8 0,4 -4,7 -7,7z"/>
+     </g>
+     <g>
+      <path class="fil1" d="M566 387l-206 0c-4,0 -8,-3 -8,-7 0,-5 4,-8 8,-8l206 0c4,0 7,3 7,8 0,4 -4,7 -7,7z"/>
+     </g>
+     <g>
+      <path class="fil1" d="M566 435l-206 0c-4,0 -8,-3 -8,-7 0,-4 4,-8 8,-8l206 0c4,0 7,4 7,8 0,4 -4,7 -7,7z"/>
+     </g>
+     <g>
+      <path class="fil1" d="M566 485l-206 0c-4,0 -8,-4 -8,-8 0,-4 4,-7 8,-7l206 0c4,0 7,3 7,7 0,4 -4,8 -7,8z"/>
+     </g>
+     <g>
+      <path class="fil1" d="M566 533l-206 0c-4,0 -8,-4 -8,-8 0,-4 4,-7 8,-7l206 0c4,0 7,3 7,7 0,4 -4,8 -7,8z"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

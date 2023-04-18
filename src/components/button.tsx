@@ -7,9 +7,9 @@ interface Props {
 }
 
 export const MyButton = (props: Props) => {
-    const facebook = require('../assets/facebook.png')
-    const instagram = require('../assets/insta.png')
-    const twitter = require('../assets/twitter.png')
+    const facebook = require('../assets/pics/facebook.png')
+    const instagram = require('../assets/pics/insta.png')
+    const twitter = require('../assets/pics/twitter.png')
     const f = 'https://www.facebook.com'
     const i = 'https://www.instagram.com'
     const t = 'https://www.twitter.com'

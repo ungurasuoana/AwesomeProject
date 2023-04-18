@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 import { data } from '../components/listitem';
 import { BookList } from '../components/booklist';
 import { BookListItem } from '../types/booklistItem';
+import { Card } from '../screens/card';
+import { useNavigation } from '@react-navigation/native';
+import { BookRoutes } from '../navigation/routes/book-routes';
+
 
 export const BookApp = () => {
-    const backgr = require('../assets/backgr.png')
+    const backgr = require('../assets/pics/backgr.png')
 
     const [calc, setCalc] = useState<number>(0)
 
@@ -14,20 +18,21 @@ export const BookApp = () => {
         setCalc(value)
     }
 
+    const navigation = useNavigation()
+
     const renderItem = ({ item }: ListRenderItemInfo<BookListItem>) =>
-        <BookList item={item} value={calc} onPress={onPress} />
+        <BookList item={item} value={calc} onPress={onPress} onTouch={()=>navigation.navigate(BookRoutes.Card, item)}/>
 
     return (
         <View style={styles.list}>
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                ListHeaderComponent={
-                    <View style={styles.header}>
-                        <ImageBackground style={styles.headerImg} source={backgr}>
-                            <Text style={styles.title}>THE BOOKSTORE</Text>
-                        </ImageBackground>
-                    </View>}
+                // ListHeaderComponent={
+                //     <View style={styles.header}>
+                //         <ImageBackground style={styles.headerImg} source={backgr}/>
+                //         <Text style={styles.title}>The Bookstore</Text>
+                //     </View>}
                 ListFooterComponent={
                     <View style={{ alignItems: 'center' }}>
                         <View style={styles.footer}>
@@ -46,16 +51,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#eee3ff',
     },
     header: {
+        height: 70,
         marginTop: 1,
         marginBottom: 5,
-        marginRight: 2,
-        marginLeft: 2,
+        borderColor: 'white',
+        borderWidth: 1,
+        borderBottomStartRadius: 15,
+        borderBottomEndRadius: 15,
         alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        backgroundColor: '#DAC8F3'
     },
     headerImg: {
-        height: 160,
-        width: 300,
-        borderRadius: 20,
+        height: 45,
+        width: 45,
         overflow: 'hidden',
         justifyContent: 'center',
     },
@@ -66,8 +76,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontStyle: 'italic',
         textShadowColor: 'black',
-        textShadowOffset: { width: 5, height: 5 },
-        textShadowRadius: 10,
+        textShadowOffset: { width: -2, height: 2 },
+        textShadowRadius: 5,
     },
     footer: {
         borderWidth: 1,
@@ -86,8 +96,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     separator: {
-        backgroundColor: 'black',
+        backgroundColor: 'grey',
         height: 2.5,
-        margin: 10,
+        margin: 5,
     }
 });

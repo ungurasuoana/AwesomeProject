@@ -5,5 +5,5 @@ export enum AppRoutes {
 
 export type AppRouteProps = {
     [AppRoutes.Login] :  undefined,
-    [AppRoutes.Home] :  {title:string}
+    [AppRoutes.Home] :  undefined
 }
