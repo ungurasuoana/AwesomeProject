@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, Image, Pressable } from "react-nativ
 
 interface Props {
     onChange: (value: string) => void
+    password: string
 }
 
 export const MyPassword = (props: Props) => {
@@ -15,6 +16,7 @@ export const MyPassword = (props: Props) => {
             <Text style={styles.tag}>Password</Text>
             <View style={styles.container}>
             <TextInput style={styles.inputText}
+                value={props.password}
                 placeholder="Password"
                 placeholderTextColor="white"
                 secureTextEntry={secure}

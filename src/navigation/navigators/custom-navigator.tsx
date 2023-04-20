@@ -27,6 +27,14 @@ export const CustomNavigation = () => {
                     // borderColor: 'black',
                     position: 'absolute',
                     borderRadius: 25,
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 8,
+                    },
+                    shadowOpacity: 0.58,
+                    shadowRadius: 16.00,
+                    elevation: 12,
                 },
                 headerRight: () =>
                     <Pressable style={styles.headerBotton}
@@ -38,7 +46,7 @@ export const CustomNavigation = () => {
                     borderBottomRightRadius: 20,
                     borderColor: 'black',
                     borderBottomWidth: 1,
-                    height: 60,
+                    height: 110,
                     backgroundColor: '#eee3ff'
                 },
                 tabBarItemStyle: {
@@ -70,7 +78,7 @@ export const CustomNavigation = () => {
                         borderRightColor: 'white',
                         borderRightWidth: 1,
                         height: '80%',
-                        marginTop: 8,
+                        marginTop: 15,
                     }
                 }}
             />
@@ -87,12 +95,12 @@ export const CustomNavigation = () => {
                             <Text style={styles.text}>{CustomRoutes.Explore}</Text>
                         </View> :
                         <Text></Text>,
-                        tabBarItemStyle: {
-                            borderRightColor: 'white',
-                            borderRightWidth: 1,
-                            height: '80%',
-                            marginTop: 8,
-                        }
+                    tabBarItemStyle: {
+                        borderRightColor: 'white',
+                        borderRightWidth: 1,
+                        height: '80%',
+                        marginTop: 15,
+                    }
 
                 }}
             />
@@ -108,6 +116,10 @@ export const CustomNavigation = () => {
                             <Text style={styles.text}>{CustomRoutes.Setting}</Text>
                         </View> :
                         <Text></Text>,
+                    tabBarItemStyle: {
+                        height: '80%',
+                        marginTop: 15,
+                    }
                 }}
             />
         </Tab.Navigator>
@@ -116,14 +128,14 @@ export const CustomNavigation = () => {
 
 const styles = StyleSheet.create({
     headerBotton: {
-        width: 50, 
-        height: 50, 
-        justifyContent: 'center', 
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 5 
+        marginRight: 5
     },
     container: {
-        width: 60,
+        width: 70,
         height: '100%',
         alignItems: 'flex-end',
         justifyContent: 'center'

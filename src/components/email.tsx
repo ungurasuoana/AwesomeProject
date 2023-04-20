@@ -3,6 +3,7 @@ import { TextInput, View, StyleSheet, Text } from "react-native/"
 
 interface Props {
     onChange: (value: string) => void
+    email: string
 }
 
 export const MyEmail = (props: Props) => {
@@ -15,15 +16,13 @@ export const MyEmail = (props: Props) => {
         else if (verif.includes('@') == false)
                { setColor('#ba090c'),
                 props.onChange('EMAIL IS INCORRECT')}
-        else
-            console.log('ajutor')
     }
 
     return (
         <View>
             <Text style={styles.tag}>Email</Text>
             <TextInput style={[styles.inputText,{ borderColor: color}]}
-            
+                value={props.email}
                 placeholder="Email"
                 placeholderTextColor="white"
                 keyboardType="email-address"

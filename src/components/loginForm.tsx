@@ -1,48 +1,71 @@
 import { View, Text, TextInput, Pressable, StyleSheet, ImageBackground, Image, Linking } from "react-native/";
 import { MyEmail } from "./email";
 import { MyPassword } from "./password";
-import { useState } from "react";
+import { ForwardedRef, forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { MyButton } from "./button";
 import { HomeIcon } from "../assets/icons";
+import { LoginFormRef } from "../types/LoginFormRef";
 
 interface Props {
-    onLogin: () => void;
+    onLogin?: () => void;
 }
 
-export const LoginForm = (props: Props) => {
+export const LoginForm = forwardRef((props: Props, ref: ForwardedRef<LoginFormRef>) => {
     const background = require('../assets/pics/background.jpg')
     const backIcon = require('../assets/pics/icon2.png')
 
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
 
+    useImperativeHandle(ref, () : LoginFormRef => ({
+        getData: () => ({ email, pass }),
+        setData: (email: string, pass: string) => { setEmail(email), setPass(pass) }
+    }))
+
+    const passRef = useRef<TextInput>(null)
+
     const onChangeEmail = (emailNew: string) => { setEmail(emailNew) }
     const onChangePass = (passNew: string) => { setPass(passNew) }
     return (
         <View style={styles.container}>
-            <ImageBackground source={background} style={styles.backImg}>
-                <View style={styles.top}>
-                    {/* <Image source={backIcon} style={styles.backIcon}/> */}
-                    <HomeIcon width={20} height={20}/>
-                    <Text style={styles.title}>Login</Text>
-                </View>
-                <View style={styles.inputs}>
-                    <MyEmail onChange={onChangeEmail} />
-                </View>
-                <View style={styles.inputs}>
-                    <MyPassword onChange={onChangePass} />
-                </View>
-                <View>
-                    <MyButton email={email} password={pass} onLogin={props.onLogin}/>
-                </View>
-            </ImageBackground>
+            {/* <ImageBackground source={background} style={styles.backImg}> */}
+            <View style={styles.top}>
+                {/* <Image source={backIcon} style={styles.backIcon}/> */}
+                <HomeIcon width={50} height={50} />
+                <Text style={styles.title}>Login</Text>
+            </View>
+            <View style={styles.inputs}>
+                <MyEmail onChange={onChangeEmail} email={email} />
+                {/* <TextInput style={{
+                        width: '99%',
+                        borderBottomWidth: 2,
+                        color: 'black',
+                        height: 40
+                    }}
+                    onSubmitEditing={() => passRef?.current?.focus()}
+                    /> */}
+            </View>
+            <View style={styles.inputs}>
+                <MyPassword onChange={onChangePass} password={pass} />
+                {/* <TextInput style={{
+                        width: '99%',
+                        borderBottomWidth: 2,
+                        color: 'black',
+                        height: 40
+                    }}
+                    ref={passRef}
+                    /> */}
+            </View>
+            <View>
+            </View>
+            {/* </ImageBackground> */}
         </View>
     )
-}
+})
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
     },
     backImg: {
         width: '100%',

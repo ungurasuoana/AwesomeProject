@@ -7,13 +7,18 @@ import { AppNavigator } from './src/navigation/navigators/app-navigator';
 import { BottomTabs } from './src/navigation/navigators/tab-navigator';
 import { CustomNavigation } from './src/navigation/navigators/custom-navigator';
 import { BookNavigation } from './src/navigation/navigators/book-navigator';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Login } from './src/screens/login-new';
 
 function App(): JSX.Element {
 
   return (
-    <NavigationContainer>
+    <SafeAreaView style={{flex:1}}>
+      <Login/>
+    {/* <NavigationContainer>
       <BookNavigation/>
-    </NavigationContainer>
+    </NavigationContainer> */}
+    </SafeAreaView>
   );
 }
 

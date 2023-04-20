@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, ListRenderItemInfo, ImageBackground
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { data } from '../components/listitem';
 import { BookList } from '../components/booklist';
 import { BookListItem } from '../types/booklistItem';
@@ -13,6 +13,11 @@ export const BookApp = () => {
     const backgr = require('../assets/pics/backgr.png')
 
     const [calc, setCalc] = useState<number>(0)
+
+    useEffect(() => {
+        console.log(calc)
+        return () => console.log('bye')
+    }, [calc])
 
     const onPress = (value: number) => {
         setCalc(value)

@@ -1,5 +1,5 @@
 import { View, StyleSheet, ImageBackground, Image, Pressable, Text } from "react-native/";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { BookListItem } from "../types/booklistItem";
 import { More } from "../assets/icons";
 
@@ -19,8 +19,18 @@ export const BookList = (props: Props) => {
     const [img, setImg] = useState(heart0)
     const [more, setMore] = useState(true)
 
+    const memoCard = useMemo(() => (
+        <ImageBackground style={styles.img} source={props.item.image}>
+            <View style={styles.pressContainer}>
+                <Pressable style={styles.press}
+                    onPress={onPress}>
+                    <Image source={img} style={styles.icon} />
+                </Pressable>
+            </View>
+        </ImageBackground>
+    ),  [])
+
     const onPress = () => {
-        console.log(pressed)
         if (!pressed) {
             setImg(heart1),
                 setPressed(true),
@@ -40,14 +50,7 @@ export const BookList = (props: Props) => {
     return (
         <View style={styles.container}>
             <View style={styles.imgContainer}>
-                <ImageBackground style={styles.img} source={props.item.image}>
-                    <View style={styles.pressContainer}>
-                        <Pressable style={styles.press}
-                            onPress={onPress}>
-                            <Image source={img} style={styles.icon} />
-                        </Pressable>
-                    </View>
-                </ImageBackground>
+                {memoCard}
             </View>
             <View style={styles.container}>
                 <Text style={styles.title}>{props.item.title}</Text>

@@ -31,7 +31,7 @@ export const BookNavigation = () => {
                     borderBottomRightRadius: 20,
                     borderBottomColor: 'black',
                     borderBottomWidth: 1,
-                    height: 60,
+                    height: 110,
                     backgroundColor: '#DAC8F3'
                 },
                 headerLeft: () =>

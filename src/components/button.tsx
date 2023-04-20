@@ -1,8 +1,8 @@
 import { Pressable, View, StyleSheet, Alert, Text, Image, Linking } from "react-native/"
 
 interface Props {
-    email: string
-    password: string
+    email?: string
+    password?: string
     onLogin: () => void
 }
 
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
         marginBottom: 50,
+        width:200
     },
     icons: {
         margin: 5
