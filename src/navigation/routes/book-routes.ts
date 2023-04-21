@@ -9,5 +9,5 @@ export enum BookRoutes {
 export type BookRoutesProps = {
     [BookRoutes.Home]: undefined
     [BookRoutes.C]: undefined
-    [BookRoutes.Card]: undefined
+    [BookRoutes.Card]: {title: string, description: string, image: number}
 }

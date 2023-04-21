@@ -39,6 +39,7 @@ export const BookNavigation = () => {
                         onPress={() => { navigation.goBack() }}>
                         <BackIcon width={35} height={35} />
                     </Pressable>,
+                
             }}>
             <Stack.Screen
                 name={BookRoutes.C}

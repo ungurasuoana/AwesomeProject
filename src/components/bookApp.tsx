@@ -7,6 +7,7 @@ import { BookListItem } from '../types/booklistItem';
 import { Card } from '../screens/card';
 import { useNavigation } from '@react-navigation/native';
 import { BookRoutes } from '../navigation/routes/book-routes';
+import { SearchBar } from './searchBar';
 
 
 export const BookApp = () => {
@@ -38,6 +39,7 @@ export const BookApp = () => {
                 //         <ImageBackground style={styles.headerImg} source={backgr}/>
                 //         <Text style={styles.title}>The Bookstore</Text>
                 //     </View>}
+                ListHeaderComponent={SearchBar}
                 ListFooterComponent={
                     <View style={{ alignItems: 'center' }}>
                         <View style={styles.footer}>

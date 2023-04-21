@@ -9,16 +9,14 @@ import { CustomNavigation } from './src/navigation/navigators/custom-navigator';
 import { BookNavigation } from './src/navigation/navigators/book-navigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Login } from './src/screens/login-new';
+import { Card } from './src/screens/card';
 
 function App(): JSX.Element {
 
   return (
-    <SafeAreaView style={{flex:1}}>
-      <Login/>
-    {/* <NavigationContainer>
+    <NavigationContainer>
       <BookNavigation/>
-    </NavigationContainer> */}
-    </SafeAreaView>
+    </NavigationContainer>
   );
 }
 

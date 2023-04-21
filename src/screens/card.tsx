@@ -1,17 +1,28 @@
-import { useEffect } from "react"
-import { View, Text, Image, StyleSheet } from "react-native"
+import { View, Text, Image, StyleSheet, Pressable } from "react-native"
+import { Content } from "../components/content";
+import { StackScreenProps } from "@react-navigation/stack";
+import { BookRoutes, BookRoutesProps } from "../navigation/routes/book-routes";
+import { useRef } from "react";
+import { BookDetailsRef } from "../types/BookDetails";
 
-export const Card = (props: any) => {
+export const Card = (props: StackScreenProps<BookRoutesProps, BookRoutes.Card>) => {
     //useEffect(()=> { console.log(props.route.params)}, [])
-    const {id, image, title, description} = props.route.params;
+    const { image } = props.route?.params;
+
+    const backgroundRef = useRef<BookDetailsRef>(null)
+
+    const onPress = () => {
+        const colors = ['red', 'lightblue', 'pink', 'orange'];
+        const index = Math.round((Math.random())*10%colors.length);
+        
+        backgroundRef.current?.setBackground(colors[index])
+    }
+    
 
     return (
         <View style={styles.container}>
-            <View style= {styles.imgContainer}>
-            <Text style={styles.title}>{title}</Text>
-            <Image source={image} style={styles.img}/>
-            <Text style={styles.description}>{description}</Text>
-            </View>
+            <Pressable onPress={onPress}><Image source={image} style={styles.img} /></Pressable>
+            <Content {...props} ref={backgroundRef}/>
         </View>
     )
 }
@@ -24,41 +35,10 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'flex-start',
     },
-    imgContainer: {
-        borderRadius: 25,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24,
-        borderColor: 'black',
-        borderWidth: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10,
-        backgroundColor: '#eee3ff',
-        paddingHorizontal: 5,
-        paddingTop: 10,
-        paddingBottom: 10,        
-    },
     img: {
         width: 350,
         height: 250,
         borderRadius: 40,
         overflow: 'hidden',
-    },
-    title: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'black',
-        textAlign: 'center',
-        marginBottom: 5
-    },
-    description: {
-        color: 'black',
-        fontSize: 16
     },
 })
