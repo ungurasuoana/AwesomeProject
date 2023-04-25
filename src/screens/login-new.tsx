@@ -10,7 +10,7 @@ export const Login = () => {
     const loginRef = useRef<LoginFormRef>(null)
 
     const onLogin = () => {
-        loginRef.current?.setData('lala','nana')
+        console.log(loginRef.current?.getData())
     }
 
     return (

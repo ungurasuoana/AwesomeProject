@@ -10,13 +10,20 @@ import { BookNavigation } from './src/navigation/navigators/book-navigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Login } from './src/screens/login-new';
 import { Card } from './src/screens/card';
+import { HookForm } from './src-new/screens/hookForm';
+import { StateForm } from './src-new/screens/stateForm';
+import { Search } from './src-new/screens/search';
 
 function App(): JSX.Element {
 
   return (
-    <NavigationContainer>
-      <BookNavigation/>
-    </NavigationContainer>
+    <Search/>
+    //<StateForm/>
+    //<Login/>
+    //<HookForm/>
+    // <NavigationContainer>
+    //   <BookNavigation/>
+    // </NavigationContainer>
   );
 }
 

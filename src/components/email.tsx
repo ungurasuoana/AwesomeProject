@@ -14,8 +14,9 @@ export const MyEmail = (props: Props) => {
                { setColor('green'),
                 props.onChange(verif)}
         else if (verif.includes('@') == false)
-               { setColor('#ba090c'),
-                props.onChange('EMAIL IS INCORRECT')}
+               { setColor('#ba090c')
+                //props.onChange('EMAIL IS INCORRECT')
+    }
     }
 
     return (
