@@ -15,6 +15,9 @@ export const HookForm = () => {
     const faculty = studref.current?.getData().faculty
     const year = studref.current?.getData().year
 
+
+//HEI BOGDAN!! inca nu stiu cum sa fac culoarea rosii ca nevalidare
+// fara sa incarc extrem de mult codul cu multe setColor 
     const onPress = () => 
     { 
 //         if(firstName === undefined)
