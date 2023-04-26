@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import { useSearch } from "../hooks/use-search"
 import { data } from "../../src/components/listitem"
@@ -23,6 +23,8 @@ export const Search = () => {
                 placeholder="Search for a Book"
                 placeholderTextColor='grey'
             />
+            
+            {/* {searchFilter.map((item) => <Text>{item.title}</Text>)} */}
         </View>
     )
 }

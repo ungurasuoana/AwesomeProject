@@ -5,9 +5,9 @@ export const useSearch = <T>(elem: T[], value: string, key: keyof T): T[] => {
 
     useEffect(() => {
         const id = setTimeout(() => {
-            if (!value) {
-                return;
-            }
+            // if (!value) {
+            //     return;
+            // }
             const findVal = elem.filter(
                 element => 
                 {

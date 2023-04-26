@@ -4,9 +4,9 @@ import { StyleSheet, Text, View } from "react-native"
 import { BookRoutes, BookRoutesProps } from "../navigation/routes/book-routes";
 import { BookDetailsRef } from "../types/BookDetails";
 
-export const Content = forwardRef((props: StackScreenProps<BookRoutesProps, BookRoutes.Card>, ref: ForwardedRef<BookDetailsRef>) => {
+export const Content = forwardRef((props: {title: string, description: string}, ref: ForwardedRef<BookDetailsRef>) => {
 
-    const {title, description} = props.route.params;
+    const {title, description} = props;
 
     const [back, setBack] = useState<string>('#eee3ff');
 

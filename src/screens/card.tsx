@@ -2,12 +2,15 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native"
 import { Content } from "../components/content";
 import { StackScreenProps } from "@react-navigation/stack";
 import { BookRoutes, BookRoutesProps } from "../navigation/routes/book-routes";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { BookDetailsRef } from "../types/BookDetails";
+import { BookState, useBookStore } from "../../src-new/store/useBookStore";
+import { MMKV } from "react-native-mmkv";
 
 export const Card = (props: StackScreenProps<BookRoutesProps, BookRoutes.Card>) => {
     //useEffect(()=> { console.log(props.route.params)}, [])
-    const { image } = props.route?.params;
+    //const { image } = props.route?.params;
+    const {book} = useBookStore( (state: BookState) => ({book: state.book}))
 
     const backgroundRef = useRef<BookDetailsRef>(null)
 
@@ -17,12 +20,18 @@ export const Card = (props: StackScreenProps<BookRoutesProps, BookRoutes.Card>) 
         
         backgroundRef.current?.setBackground(colors[index])
     }
-    
+    const storage = new MMKV
+    useEffect(() => {
+        const res = storage.getString('alo')
+        console.log(res)
+    }, [])
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={onPress}><Image source={image} style={styles.img} /></Pressable>
-            <Content {...props} ref={backgroundRef}/>
+            <Pressable onPress={onPress}>
+                {book?.image && <Image source={book?.image} style={styles.img} />}
+                </Pressable>
+            {book && <Content {...book} ref={backgroundRef}/>}
         </View>
     )
 }

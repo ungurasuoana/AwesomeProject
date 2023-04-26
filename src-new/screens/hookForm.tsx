@@ -10,27 +10,28 @@ export const HookForm = () => {
     const persRef = useRef<PersInfoRef>(null)
     const studref = useRef<InputRef>(null)
     
-    const firstName = persRef.current?.getData().firstN
-    const lastName = persRef.current?.getData().lastN
-    const faculty = studref.current?.getData().faculty
-    const year = studref.current?.getData().year
 
 
 //HEI BOGDAN!! inca nu stiu cum sa fac culoarea rosii ca nevalidare
 // fara sa incarc extrem de mult codul cu multe setColor 
     const onPress = () => 
     { 
+        const firstName = persRef.current?.getData().firstN
+        const lastName = persRef.current?.getData().lastN
+        const faculty = studref.current?.getData().faculty
+        const year = studref.current?.getData().year
+    
 //         if(firstName === undefined)
 //         {persRef.current?.setColor('red','transparent')
 //  }       else if (lastName === undefined)
 //         {persRef.current?.setColor('transparent','red')}
 //         else
-        {Alert.alert('Information',
+        Alert.alert('Information',
         `First name is: ${firstName} and last name is: ${lastName}. Faculty is: ${faculty} and year is: ${year}`, 
         [   {   text: 'Cancel',
                 style: 'cancel',
             },
-            { text: 'OK' },])}
+            { text: 'OK' },])
     }
 
 

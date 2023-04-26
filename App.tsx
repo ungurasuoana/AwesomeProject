@@ -17,13 +17,13 @@ import { Search } from './src-new/screens/search';
 function App(): JSX.Element {
 
   return (
-    <Search/>
+    //<Search/>
     //<StateForm/>
     //<Login/>
     //<HookForm/>
-    // <NavigationContainer>
-    //   <BookNavigation/>
-    // </NavigationContainer>
+    <NavigationContainer>
+      <BookNavigation/>
+    </NavigationContainer>
   );
 }
 
