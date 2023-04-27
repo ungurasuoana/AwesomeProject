@@ -8,20 +8,27 @@ export interface BookState {
     books: BookListItem[]
     book: BookListItem | null
     setCurrentBook: (book: BookListItem) => void
+    getBooks: (data: BookListItem[]) => void
 }
 
-export const useBookStore = create(persist<BookState>((set) => ({
-    books: data,
+export const useBookStore = create<BookState>(
+    // persist<BookState>(
+    (set) => ({
+    books: [],
     book: null,
     setCurrentBook: (newBook: BookListItem) => {
         set((state:BookState) => ({book: newBook}))
-    }
-}),
-{
-    name: 'book-storage',
-    storage: createJSONStorage(() => zustandStorage)
+    },
+    getBooks: (data:BookListItem[]) => {
+    set((state:BookState) => ({books: data}))
 }
-))
+}),
+// {
+//     name: 'book-storage',
+//     storage: createJSONStorage(() => zustandStorage)
+// }
+// )
+)
 
 // export const useBookStore = create<BookState>((set) => ({
 //     books: data,

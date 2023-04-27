@@ -20,7 +20,7 @@ export const BookList = (props: Props) => {
     const [more, setMore] = useState(true)
 
     const memoCard = useMemo(() => (
-        <ImageBackground style={styles.img} source={props.item.image}>
+        <ImageBackground style={styles.img} source={{uri: props.item.image}}>
             <View style={styles.pressContainer}>
                 <Pressable style={styles.press}
                     onPress={onPress}>
@@ -53,7 +53,7 @@ export const BookList = (props: Props) => {
                 {memoCard}
             </View>
             <View style={styles.container}>
-                <Text style={styles.title}>{props.item.title}</Text>
+                <Text style={styles.title}>{props.item.name}</Text>
                 <Pressable onPress={() => props.onTouch()}
                     style={styles.button}>
                     <Text style={styles.textButton}>Read More</Text>

@@ -26,10 +26,12 @@ export const Card = (props: StackScreenProps<BookRoutesProps, BookRoutes.Card>) 
         console.log(res)
     }, [])
 
+    console.log(book)
+
     return (
         <View style={styles.container}>
             <Pressable onPress={onPress}>
-                {book?.image && <Image source={book?.image} style={styles.img} />}
+                {book?.image && <Image source={{uri: book?.image}} style={styles.img} />}
                 </Pressable>
             {book && <Content {...book} ref={backgroundRef}/>}
         </View>

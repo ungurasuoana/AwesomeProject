@@ -1,6 +1,6 @@
 export interface BookListItem {
     id: number;
-    image: number;
-    title: string;
+    image: string;
+    name: string;
     description: string;
 }

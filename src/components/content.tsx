@@ -4,9 +4,9 @@ import { StyleSheet, Text, View } from "react-native"
 import { BookRoutes, BookRoutesProps } from "../navigation/routes/book-routes";
 import { BookDetailsRef } from "../types/BookDetails";
 
-export const Content = forwardRef((props: {title: string, description: string}, ref: ForwardedRef<BookDetailsRef>) => {
+export const Content = forwardRef((props: {name: string, description: string}, ref: ForwardedRef<BookDetailsRef>) => {
 
-    const {title, description} = props;
+    const {name, description} = props;
 
     const [back, setBack] = useState<string>('#eee3ff');
 
@@ -16,7 +16,7 @@ export const Content = forwardRef((props: {title: string, description: string}, 
 
     return (
         <View style= {[styles.imgContainer, {backgroundColor: back}]}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{description}</Text>
         </View>
     )
